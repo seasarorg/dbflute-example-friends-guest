@@ -1,0 +1,5 @@
+map:{
+	; manyToOneFetch = LAZY
+	; oneToOneFetch = LAZY
+	; oneToManyFetch = LAZY
+}

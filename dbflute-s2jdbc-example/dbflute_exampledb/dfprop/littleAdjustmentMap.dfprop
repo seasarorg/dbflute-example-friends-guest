@@ -1,0 +1,6 @@
+map:{
+    # Extension for S2JDBC
+    ; alternateGenerateControl = om/java/other/s2jdbc/s2jdbc-Control.vm
+    ; alternateSql2EntityControl = om/java/other/s2jdbc/s2jdbc-sql2entity-Control.vm
+    ; isSuppressParameterCommentCheck = true
+}

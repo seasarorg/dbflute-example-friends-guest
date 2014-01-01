@@ -1,0 +1,24 @@
+# /---------------------------------------------------------------------------
+# s2jdbcDefinitionMap: (Default map:{})
+#
+# The settings about generation of S2JDBC's entities.
+# You should set this when you use S2JDBC.
+# 
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    # Package for Entity
+    ; baseEntityPackage = com.example.dbflute.s2jdbc.entity.bs
+    ; extendedEntityPackage = com.example.dbflute.s2jdbc.entity
+
+    # Prefix for Entity
+    ; baseEntityPrefix = Bs
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o isSuppressPublicField (NotRequired - Default false)
+    #  Does it suppress the public field in generated entities?
+    #  If true, it generates getter and setter instead.
+    #
+    ; isSuppressPublicField = false
+    # - - - - - - - - - -/
+}
