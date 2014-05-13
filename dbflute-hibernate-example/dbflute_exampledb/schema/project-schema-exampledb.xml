@@ -4,7 +4,7 @@
 <database name="PUBLIC">
     <table name="MEMBER" schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column autoIncrement="true" comment="" dbType="INTEGER"
-            default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_183DA4B1_D709_459D_8FB6_6789426C619D"
+            default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_95C5BFD7_3CDA_4A55_B2BC_597C37765C61"
             javaType="Integer" name="MEMBER_ID" pkName="CONSTRAINT_8"
             primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
@@ -47,7 +47,7 @@
     </table>
     <table name="MEMBER_LOGIN" schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
-            default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_53CB482C_2577_4543_B998_612817F4DC98"
+            default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_1A7318DF_B80F_4BB1_803C_9843F1554419"
             javaType="Long" name="MEMBER_LOGIN_ID" pkName="CONSTRAINT_B"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="INTEGER" javaType="Integer"
@@ -181,7 +181,7 @@
     </table>
     <table name="PRODUCT" schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column autoIncrement="true" comment="" dbType="INTEGER"
-            default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_2DD11E56_9ED0_4C63_87B6_B31708077EA9"
+            default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_48CC502A_16E8_4701_BEE2_4BADDFE7848A"
             javaType="Integer" name="PRODUCT_ID" pkName="CONSTRAINT_1"
             primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
@@ -229,7 +229,7 @@
     </table>
     <table name="PURCHASE" schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column autoIncrement="true" comment="" dbType="BIGINT"
-            default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_2CDAB9C0_1919_4690_85C1_E30C33E84200"
+            default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_FC86C9BE_E494_484F_900C_1C3939E2F079"
             javaType="Long" name="PURCHASE_ID" pkName="CONSTRAINT_9"
             primaryKey="true" required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="INTEGER" javaType="Integer"
@@ -310,12 +310,12 @@
     </table>
     <sequenceGroup>
         <sequence incrementSize="1"
-            name="SYSTEM_SEQUENCE_183DA4B1_D709_459D_8FB6_6789426C619D" schema="EXAMPLEDB.PUBLIC"/>
+            name="SYSTEM_SEQUENCE_95C5BFD7_3CDA_4A55_B2BC_597C37765C61" schema="EXAMPLEDB.PUBLIC"/>
         <sequence incrementSize="1"
-            name="SYSTEM_SEQUENCE_53CB482C_2577_4543_B998_612817F4DC98" schema="EXAMPLEDB.PUBLIC"/>
+            name="SYSTEM_SEQUENCE_FC86C9BE_E494_484F_900C_1C3939E2F079" schema="EXAMPLEDB.PUBLIC"/>
         <sequence incrementSize="1"
-            name="SYSTEM_SEQUENCE_2DD11E56_9ED0_4C63_87B6_B31708077EA9" schema="EXAMPLEDB.PUBLIC"/>
+            name="SYSTEM_SEQUENCE_1A7318DF_B80F_4BB1_803C_9843F1554419" schema="EXAMPLEDB.PUBLIC"/>
         <sequence incrementSize="1"
-            name="SYSTEM_SEQUENCE_2CDAB9C0_1919_4690_85C1_E30C33E84200" schema="EXAMPLEDB.PUBLIC"/>
+            name="SYSTEM_SEQUENCE_48CC502A_16E8_4701_BEE2_4BADDFE7848A" schema="EXAMPLEDB.PUBLIC"/>
     </sequenceGroup>
 </database>
