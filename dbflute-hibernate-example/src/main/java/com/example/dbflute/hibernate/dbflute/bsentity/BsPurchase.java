@@ -62,7 +62,7 @@ public abstract class BsPurchase implements EntityDefinedCommonColumn, Serializa
     @Column(name="PURCHASE_ID")
     protected Long purchaseId;
     
-    /** Property for purchaseDatetime column. {UQ+, NotNull, TIMESTAMP(23, 10)} */
+    /** Property for purchaseDatetime column. {+UQ, NotNull, TIMESTAMP(23, 10)} */
     @Column(name="PURCHASE_DATETIME")
     protected java.sql.Timestamp purchaseDatetime;
     
@@ -408,7 +408,7 @@ public abstract class BsPurchase implements EntityDefinedCommonColumn, Serializa
     }
 
     /**
-     * PURCHASE_DATETIME: {UQ+, NotNull, TIMESTAMP(23, 10)} <br />
+     * PURCHASE_DATETIME: {+UQ, NotNull, TIMESTAMP(23, 10)} <br />
      * @return The value of the column 'PURCHASE_DATETIME'. (NullAllowed)
      */
     public java.sql.Timestamp getPurchaseDatetime() {
@@ -416,7 +416,7 @@ public abstract class BsPurchase implements EntityDefinedCommonColumn, Serializa
     }
 
     /**
-     * PURCHASE_DATETIME: {UQ+, NotNull, TIMESTAMP(23, 10)} <br />
+     * PURCHASE_DATETIME: {+UQ, NotNull, TIMESTAMP(23, 10)} <br />
      * @param purchaseDatetime The value of the column 'PURCHASE_DATETIME'. (NullAllowed)
      */
     public void setPurchaseDatetime(java.sql.Timestamp purchaseDatetime) {

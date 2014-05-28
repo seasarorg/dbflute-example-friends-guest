@@ -59,20 +59,20 @@ public abstract class BsPurchase implements Serializable {
     public Long purchaseId;
 
     /**
-     * (会員ID)MEMBER_ID: {UQ, IX, NotNull, INTEGER(10), FK to MEMBER} <br />
+     * (会員ID)MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} <br />
      * 会員を参照するID。<br />
      * 購入を識別する自然キー（複合ユニーク制約）の筆頭要素。
      */
     public Integer memberId;
 
     /**
-     * (商品ID)PRODUCT_ID: {UQ+, IX, NotNull, INTEGER(10), FK to PRODUCT} <br />
+     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to PRODUCT} <br />
      * 商品を参照するID。
      */
     public Integer productId;
 
     /**
-     * (購入日時)PURCHASE_DATETIME: {UQ+, IX, NotNull, TIMESTAMP(23, 10)} <br />
+     * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, TIMESTAMP(23, 10)} <br />
      * 購入した瞬間の日時。
      */
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)

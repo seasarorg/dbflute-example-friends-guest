@@ -59,12 +59,12 @@ public abstract class BsMemberLogin implements Serializable {
     public Long memberLoginId;
 
     /**
-     * (会員ID)MEMBER_ID: {UQ, IX, NotNull, INTEGER(10), FK to MEMBER} <br />
+     * (会員ID)MEMBER_ID: {UQ+, IX, NotNull, INTEGER(10), FK to MEMBER} <br />
      */
     public Integer memberId;
 
     /**
-     * (ログイン日時)LOGIN_DATETIME: {UQ+, IX, NotNull, TIMESTAMP(23, 10)} <br />
+     * (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, TIMESTAMP(23, 10)} <br />
      * ログインした瞬間の日時。
      */
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)

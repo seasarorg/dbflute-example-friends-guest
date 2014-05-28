@@ -60,7 +60,7 @@ public abstract class BsMemberLogin implements com.example.dbflute.hibernate.dbf
     @Column(name="MEMBER_LOGIN_ID")
     protected Long memberLoginId;
     
-    /** Property for loginDatetime column. {UQ+, NotNull, TIMESTAMP(23, 10)} */
+    /** Property for loginDatetime column. {+UQ, NotNull, TIMESTAMP(23, 10)} */
     @Column(name="LOGIN_DATETIME")
     protected java.sql.Timestamp loginDatetime;
     
@@ -312,7 +312,7 @@ public abstract class BsMemberLogin implements com.example.dbflute.hibernate.dbf
     }
 
     /**
-     * LOGIN_DATETIME: {UQ+, NotNull, TIMESTAMP(23, 10)} <br />
+     * LOGIN_DATETIME: {+UQ, NotNull, TIMESTAMP(23, 10)} <br />
      * @return The value of the column 'LOGIN_DATETIME'. (NullAllowed)
      */
     public java.sql.Timestamp getLoginDatetime() {
@@ -320,7 +320,7 @@ public abstract class BsMemberLogin implements com.example.dbflute.hibernate.dbf
     }
 
     /**
-     * LOGIN_DATETIME: {UQ+, NotNull, TIMESTAMP(23, 10)} <br />
+     * LOGIN_DATETIME: {+UQ, NotNull, TIMESTAMP(23, 10)} <br />
      * @param loginDatetime The value of the column 'LOGIN_DATETIME'. (NullAllowed)
      */
     public void setLoginDatetime(java.sql.Timestamp loginDatetime) {

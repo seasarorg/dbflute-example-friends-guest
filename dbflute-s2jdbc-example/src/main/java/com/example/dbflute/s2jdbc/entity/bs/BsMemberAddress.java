@@ -62,7 +62,7 @@ public abstract class BsMemberAddress implements Serializable {
     public Integer memberAddressId;
 
     /**
-     * (会員ID)MEMBER_ID: {UQ, IX, NotNull, INTEGER(10), FK to MEMBER} <br />
+     * (会員ID)MEMBER_ID: {UQ+, IX, NotNull, INTEGER(10), FK to MEMBER} <br />
      * 会員を参照するID。<br />
      * 履歴分を含むため、これだけではユニークにはならない。<br />
      * 有効開始日と合わせて複合ユニーク制約となるが、<br />
@@ -72,7 +72,7 @@ public abstract class BsMemberAddress implements Serializable {
     public Integer memberId;
 
     /**
-     * (有効開始日)VALID_BEGIN_DATE: {UQ+, NotNull, DATE(8)} <br />
+     * (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(8)} <br />
      * 一つの有効期間の開始を示す日付。<br />
      * 前の有効終了日の次の日の値が格納される。
      */
