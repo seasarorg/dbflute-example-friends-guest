@@ -7,7 +7,7 @@
         <column autoIncrement="true" comment="会員ID: 連番" dbType="INTEGER"
             default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_DECA9787_2751_482D_AFE1_71858CD01772"
             javaType="Integer" name="MEMBER_ID" pkName="CONSTRAINT_8"
-            primaryKey="true" required="true" size="10" type="INTEGER"/>
+            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="会員名称: 会員の表示用の名称(姓名)" dbType="VARCHAR"
             javaType="String" name="MEMBER_NAME" required="true"
             size="200" type="VARCHAR"/>
@@ -58,7 +58,7 @@
         schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column comment="会員住所ID:" dbType="INTEGER" javaType="Integer"
             name="MEMBER_ADDRESS_ID" pkName="CONSTRAINT_B"
-            primaryKey="true" required="true" size="10" type="INTEGER"/>
+            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="会員ID:" dbType="INTEGER" javaType="Integer"
             name="MEMBER_ID" required="true" size="10" type="INTEGER"/>
         <column comment="有効開始日: 有効期間の開始日。前の終了日の一日後の値が格納される。"
@@ -103,8 +103,8 @@
             dbType="BIGINT"
             default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_49899FF9_AFAA_479D_8B0E_F0E8C2F14F50"
             javaType="Long" name="MEMBER_LOGIN_ID"
-            pkName="CONSTRAINT_BD" primaryKey="true" required="true"
-            size="19" type="BIGINT"/>
+            pkName="CONSTRAINT_BD" pkPosition="1" primaryKey="true"
+            required="true" size="19" type="BIGINT"/>
         <column comment="会員ID: " dbType="INTEGER" javaType="Integer"
             name="MEMBER_ID" required="true" size="10" type="INTEGER"/>
         <column comment="ログイン日時: " dbType="TIMESTAMP"
@@ -140,8 +140,8 @@
     </table>
     <table name="MEMBER_SECURITY" schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column comment="" dbType="INTEGER" javaType="Integer"
-            name="MEMBER_ID" pkName="CONSTRAINT_6" primaryKey="true"
-            required="true" size="10" type="INTEGER"/>
+            name="MEMBER_ID" pkName="CONSTRAINT_6" pkPosition="1"
+            primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="LOGIN_PASSWORD" required="true" size="50" type="VARCHAR"/>
         <column comment="" dbType="VARCHAR" javaType="String"
@@ -173,7 +173,7 @@
         schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column comment="会員ステータスコード: " dbType="CHAR" javaType="String"
             name="MEMBER_STATUS_CODE" pkName="CONSTRAINT_4"
-            primaryKey="true" required="true" size="3" type="CHAR"/>
+            pkPosition="1" primaryKey="true" required="true" size="3" type="CHAR"/>
         <column comment="会員ステータス名称: " dbType="VARCHAR" javaType="String"
             name="MEMBER_STATUS_NAME" required="true" size="50" type="VARCHAR"/>
         <column comment="表示順: 昇順で利用" dbType="INTEGER" javaType="Integer"
@@ -188,8 +188,8 @@
     <table comment="会員退会情報: 退会するとInsertされる" name="MEMBER_WITHDRAWAL"
         schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column comment="" dbType="INTEGER" javaType="Integer"
-            name="MEMBER_ID" pkName="CONSTRAINT_E" primaryKey="true"
-            required="true" size="10" type="INTEGER"/>
+            name="MEMBER_ID" pkName="CONSTRAINT_E" pkPosition="1"
+            primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="CHAR" javaType="String"
             name="WITHDRAWAL_REASON_CODE" size="3" type="CHAR"/>
         <column comment="" dbType="CLOB" javaType="String"
@@ -229,7 +229,7 @@
         <column autoIncrement="true" comment="" dbType="INTEGER"
             default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_5B5592AB_D1C8_451B_9D1A_54E1756452BF"
             javaType="Integer" name="PRODUCT_ID" pkName="CONSTRAINT_1"
-            primaryKey="true" required="true" size="10" type="INTEGER"/>
+            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="PRODUCT_NAME" required="true" size="50" type="VARCHAR"/>
         <column comment="" dbType="VARCHAR" javaType="String"
@@ -270,7 +270,7 @@
         schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="PRODUCT_STATUS_CODE" pkName="CONSTRAINT_1B"
-            primaryKey="true" required="true" size="3" type="CHAR"/>
+            pkPosition="1" primaryKey="true" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="VARCHAR" javaType="String"
             name="PRODUCT_STATUS_NAME" required="true" size="50" type="VARCHAR"/>
         <unique name="UQ_PRODUCT_STATUS_PRODUCT_STATUS_NAME_INDEX_1">
@@ -282,7 +282,7 @@
         <column autoIncrement="true" comment="" dbType="BIGINT"
             default="NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_31EBBB1B_4473_4D04_ADBB_B723CC1E814C"
             javaType="Long" name="PURCHASE_ID" pkName="CONSTRAINT_9"
-            primaryKey="true" required="true" size="19" type="BIGINT"/>
+            pkPosition="1" primaryKey="true" required="true" size="19" type="BIGINT"/>
         <column comment="" dbType="INTEGER" javaType="Integer"
             name="MEMBER_ID" required="true" size="10" type="INTEGER"/>
         <column comment="" dbType="INTEGER" javaType="Integer"
@@ -358,7 +358,7 @@
     </table>
     <table name="VENDOR_CHECK" schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="Long"
-            name="VENDOR_CHECK_ID" pkName="CONSTRAINT_2"
+            name="VENDOR_CHECK_ID" pkName="CONSTRAINT_2" pkPosition="1"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
         <column comment="" dbType="DECIMAL"
             javaType="java.math.BigDecimal" name="DECIMAL_DIGIT"
@@ -375,7 +375,7 @@
     <table name="WITHDRAWAL_REASON" schema="EXAMPLEDB.PUBLIC" type="TABLE">
         <column comment="" dbType="CHAR" javaType="String"
             name="WITHDRAWAL_REASON_CODE" pkName="CONSTRAINT_10"
-            primaryKey="true" required="true" size="3" type="CHAR"/>
+            pkPosition="1" primaryKey="true" required="true" size="3" type="CHAR"/>
         <column comment="" dbType="CLOB" javaType="String"
             name="WITHDRAWAL_REASON_TEXT" required="true"
             size="2147483647" type="CLOB"/>

@@ -32,6 +32,11 @@ import org.seasar.dbflute.Entity;
 #end
 import org.seasar.dbflute.dbmeta.DBMeta;
 import org.seasar.dbflute.dbmeta.AbstractEntity;
+#if ($isSql2Entity)
+import org.seasar.dbflute.dbmeta.accessory.CustomizeEntity;
+#else
+import org.seasar.dbflute.dbmeta.accessory.DomainEntity;
+#end
 #if ($table.needsMappingValueType())
 import org.seasar.dbflute.dbmeta.accessory.MappingValueType;
 #end
@@ -55,10 +60,13 @@ import ${myExtendedEntityPackageName}._;
 import ${glPackageExtendedEntity}._;
 #end
 #set ($myEntityInterfaceDef = "")
-#if (${table.hasAllCommonColumn()})
-#set ($myEntityInterfaceDef = " with ${glEntityDefinedCommonColumn}")
+#if ($isSql2Entity)
+#set ($myEntityInterfaceDef = "CustomizeEntity")
 #else
-#set ($myEntityInterfaceDef = "")
+#set ($myEntityInterfaceDef = "DomainEntity")
+#end
+#if (${table.hasAllCommonColumn()})
+#set ($myEntityInterfaceDef = "${myEntityInterfaceDef} with ${glEntityDefinedCommonColumn}")
 #end
 #if ($table.hasRelationalNullObjectProviderImport())
 import ${table.relationalNullObjectProviderPackage}._;
@@ -109,7 +117,7 @@ import ${table.relationalNullObjectProviderPackage}._;
  * </pre>
  * @author ${database.classAuthor}
  */
-abstract class $myClassName extends AbstractEntity${myEntityInterfaceDef} with DBableEntity[${myImmutableExtendedObjectClassName}] with Serializable with Cloneable {
+abstract class $myClassName extends AbstractEntity with ${myEntityInterfaceDef} with DBableEntity[${myImmutableExtendedObjectClassName}] with Serializable with Cloneable {
 
     // ===================================================================================
     //                                                                           Attribute
@@ -536,7 +544,7 @@ abstract class $myClassName extends AbstractEntity${myEntityInterfaceDef} with D
     //                                                                        ============
     protected def toScalaList[ENTITY](javaList: Collection[ENTITY]): immutable.List[ENTITY] = {
         if (javaList == null) { return immutable.List(); }
-        return immutable.List.fromArray(javaList.toArray).asInstanceOf[immutable.List[ENTITY]];
+        return javaList.toArray.toList.asInstanceOf[immutable.List[ENTITY]];
     }
 
     // ===================================================================================
@@ -587,7 +595,7 @@ abstract class $myClassName extends AbstractEntity${myEntityInterfaceDef} with D
 #end
 #foreach ($referrer in $table.referrerAsOneList)
 #set ($referrerVariableName = "_${referrer.referrerPropertyNameAsOne}")
-#if ($fk.isForeignPropertyOptionalEntity())
+#if ($referrer.isReferrerPropertyOptionalEntityAsOne())
         if (${referrerVariableName} != null && ${referrerVariableName}.isEmpty)
 #else
         if (${referrerVariableName} != null)
@@ -632,11 +640,21 @@ abstract class $myClassName extends AbstractEntity${myEntityInterfaceDef} with D
         val sb: StringBuilder = new StringBuilder();
 #foreach ($fk in $table.foreignKeys)
 #set ($foreignVariableName = "_${fk.foreignPropertyName}")
-        if (${foreignVariableName} != null) { sb.append(dm).append("${fk.foreignPropertyName}"); }
+#if ($fk.isForeignPropertyOptionalEntity())
+        if (${foreignVariableName} != null && ${foreignVariableName}.isEmpty)
+#else
+        if (${foreignVariableName} != null)
+#end
+        { sb.append(dm).append("${fk.foreignPropertyName}"); }
 #end
 #foreach ($referrer in $table.referrerAsOneList)
 #set ($referrerVariableName = "_${referrer.referrerPropertyNameAsOne}")
-        if (${referrerVariableName} != null) { sb.append(dm).append("${referrer.referrerPropertyNameAsOne}"); }
+#if ($referrer.isReferrerPropertyOptionalEntityAsOne())
+        if (${referrerVariableName} != null && ${referrerVariableName}.isEmpty)
+#else
+        if (${referrerVariableName} != null)
+#end
+        { sb.append(dm).append("${referrer.referrerPropertyNameAsOne}"); }
 #end
 #foreach ($referrer in $table.referrerAsManyList)
 #set ($referrerVariableName = "_${referrer.referrerPropertyName}")
@@ -705,7 +723,7 @@ abstract class $myClassName extends AbstractEntity${myEntityInterfaceDef} with D
 #if ($col.hasCheckClassificationCodeOnEntity())
         checkClassificationCode("${col.name}", ${glCDef}.DefMeta.${col.classificationName}, ${col.uncapitalisedJavaName});
 #end
-        __modifiedProperties.addPropertyName("${col.javaBeansRulePropertyName}");
+        registerModifiedProperty("${col.javaBeansRulePropertyName}");
         _${col.uncapitalisedJavaName} = ${col.uncapitalisedJavaName};
     }
 #set ($propertyLoopIndex = $propertyLoopIndex + 1)
